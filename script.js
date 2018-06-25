@@ -11,6 +11,8 @@ function readyNow(){
 
 function addClickHandlers(){
     $('#generate').on('click', generateClick);
+    $('main').on('click', ' div #delete', deleteClick)
+    $('main').on('click', ' div #swap', swapClick)
 }
 
 function generateClick(){
@@ -20,10 +22,19 @@ function generateClick(){
             <p>
                 ${clicksOnGenerate}
             </p>
-            <button id="swap">Swap</button>
+            <button id="swap">Swap Color</button>
             <button id="delete">Delete</button>
             
         </div>
     `)
 
+}
+
+function deleteClick(){
+    $(this).closest('div').remove();    
+}
+
+function swapClick(){
+    $(this).closest('div').toggleClass('yellow red');
+    
 }
